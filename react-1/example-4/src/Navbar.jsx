@@ -1,5 +1,5 @@
 const Navbar = () => {
-  return <nav>This is navigation bar!!!</nav>;
+  return <nav>This is navigation bar is Work</nav>;
 };
 
 export default Navbar;
