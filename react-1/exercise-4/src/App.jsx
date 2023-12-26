@@ -35,6 +35,27 @@ function RunningForm(){
   )
 }
 
+const DataArray = () => {
+  const NewDataArray = [
+    {
+      name: "Mock J",
+      age: 99,
+      weight: 60,
+      running: 40,
+      status: "Balance",
+  },
+    {
+      name: "Mock J",
+      age: 99,
+      weight: 60,
+      running: 40,
+      status: "Balance",
+  },
+  ];
+return NewDataArray;
+}
+
+
 function TableDisplay(){
   return(
     <body>
@@ -46,7 +67,18 @@ function TableDisplay(){
         <th>Weight</th>
         <th>Current Running (Minutes)</th>
         <th>Good Running</th>
-      </tr>
+      </tr>      
+        {DataArray().map((NewDataArray) => {
+          return (
+            <tr>
+              <td>{NewDataArray.name}</td>
+              <td>{NewDataArray.age}</td>
+              <td>{NewDataArray.weight}</td>
+              <td>{NewDataArray.running}</td>
+              <td>{NewDataArray.status}</td>
+            </tr>
+          );
+        })}
     </table>
     </body>
   )
