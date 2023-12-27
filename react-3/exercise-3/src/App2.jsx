@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [temperature, setTemp] = useState(25);
+  const [temperature, setTemperature] = useState(12);
 
-  const increaseTemp= () => {
-    setTemp(temperature + 1);
+  const increaseTemperature = () => {
+    setTemperature(temperature + 1);
   };
 
-  const decreaseTemp = () => {
-    setTemp(temperature - 1);
+  const decreaseTemperature = () => {
+    setTemperature(temperature - 1);
   };
 
   return (
@@ -17,8 +17,8 @@ function App() {
       <Header temp={temperature} />
       <Content tempContent={temperature} />
       <Footer
-        onIncreaseTemp={increaseTemp}
-        onDecreaseTemp={decreaseTemp}
+        onIncreaseTemperature={increaseTemperature}
+        onDecreaseTemperature={decreaseTemperature}
       />
     </div>
   );
@@ -55,8 +55,8 @@ function Temperature(props) {
 function Footer(props) {
   return (
     <footer>
-      <button onClick={props.onIncreaseTemp}>Up</button>
-      <button onClick={props.onDecreaseTemp}>Down</button>
+      <button onClick={props.onIncreaseTemperature}>Up</button>
+      <button onClick={props.onDecreaseTemperature}>Down</button>
     </footer>
   );
 }

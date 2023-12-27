@@ -27,8 +27,20 @@ const App = () => {
                 }>BLUE</div>
             }
 
+            {color === 'pink' && 
+                <div style={
+                    {
+                        width: '150px', 
+                        height: '150px', 
+                        margin: '12px', 
+                        background: 'pink'
+                    }
+                }>PINK</div>
+            }
+
             <button onClick={() => setColor('yellow')}>Show Yellow</button>
             <button onClick={() => setColor('blue')}>Show Blue</button>
+            <button onClick={() => setColor('pink')}>Show Pink</button>
         </>
     )
 }

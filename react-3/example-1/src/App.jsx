@@ -1,17 +1,23 @@
 import { useState } from 'react'
 
+
+// การทำfunction + แบบ counter 
 const App = () => {
-    const [counter, setCounter] = useState(0)
+    const [counter, handleCounter] = useState(0) // ใช้เป็น Arrary
     
     return (
         <div>
             <h3>People is coming from the gate. Please count.</h3>
             <span>{counter}</span>
             &nbsp;
-            <button onClick={
-                () => setCounter(counter + 1)
-            }
-            >Count</button>
+           <button
+           onClick={() => {
+            handleCounter(counter +1);
+           }}>Counter(+)</button>
+           <button
+           onClick={() => {
+            handleCounter(counter -1);
+           }}>Counter(-)</button>
         </div>
     )
 }
