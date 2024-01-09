@@ -9,8 +9,8 @@ import './assets/style/index.css'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
     // <App />
-    // <Mounting />
+    <Mounting />
     // <Unmounting />
     // <Updating />
-    <GPT />
+    // <GPT />
 )

@@ -1,14 +1,46 @@
-import React from 'react';
+import React, {useState} from 'react';
+import getData from '/Data.jsx';
 
 function App() {
+  const [newData, setNewData] = useState({
+    Name: '',
+    Organization: '',
+    Position: '',
+  });
+
+  const handleInputChange = (event) => {
+    const {name, value} = event.target;
+    setNewData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSave = () => {
+    getData.push(newData);
+  
+    setNewData({
+      Name: '',
+      Organization: '',
+      Position: '',
+    });
+  };
+
+
+  const handleKeyPress = (event) => {
+    if (event.key === 'Enter') {
+      handleSave();
+    }
+  };
+
   return (
     <div className="App"> {/* Add class name */}
       <h1>Table Example</h1>
       <div>
-        <input type="text" placeholder="Type new name here" style={{margin: '4px'}} />
-        <input type="text" placeholder="Type new organization here" style={{margin: '4px'}} />
-        <input type="text" placeholder="Type new position here" style={{margin: '4px'}} />
-        <button style={{margin: '4px'}}>Save</button>
+        <input type="text" name="Name" placeholder="Type new name here" style={{margin: '4px'}} value={newData.Name} onChange={handleInputChange} onKeyDown={handleKeyPress}/>
+        <input type="text" name="Organization" placeholder="Type new organization here" style={{margin: '4px'}} value={newData.Organization} onChange={handleInputChange} onKeyDown={handleKeyPress}/>
+        <input type="text" name="Position" placeholder="Type new position here" style={{margin: '4px'}} value={newData.Position} onChange={handleInputChange} onKeyDown={handleKeyPress}/>
+        <button style={{margin: '4px'}} onClick={handleSave}>Save</button>
       </div>
 
       <table>
@@ -20,25 +52,29 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>John</td>
-            <td>ABC Inc.</td>
-            <td>Developer</td>
-          </tr>
-          <tr>
-            <td>Jane</td>
-            <td>XYZ Corp.</td>
-            <td>Designer</td>
-          </tr>
-          <tr>
-            <td>Bob</td>
-            <td>123 LLC</td>
-            <td>Manager</td>
-          </tr>
-        </tbody>
+       {getData.map((dataItem, index) => (
+        <tr key={index}>
+          <td>{dataItem.Name}</td>
+          <td>{dataItem.Organization}</td>
+          <td>{dataItem.Position}</td>
+        </tr>
+       ))}
+       </tbody>
       </table>
     </div>
   );
 }
+
+// function getData() {
+//   return(
+//     <tbody>
+//       <tr>
+//         <td>{Name}</td>
+//         <td>{Organization}</td>
+//         <td>{Position}</td>
+//       </tr>
+//     </tbody>
+//   )
+// }
 
 export default App;

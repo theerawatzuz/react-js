@@ -1,28 +1,31 @@
 import { createContext, useContext, useState } from "react";
 import "./App.css";
 
-const CustomContext = createContext({});
+
+const firstContext = createContext();
 
 function App() {
   const [temperature, setTemperature] = useState(0);
+  // การทำ context
   return (
     <div id="app">
-      <CustomContext.Provider
-        value={{
-          temperature: temperature,
-          setTemperature: setTemperature,
-        }}
+      
+      <firstContext.Provider
+      value= {{
+        temperature: temperature,
+        setTemperature: setTemperature,
+      }}
       >
-        <Header />
-        <Content />
-        <Footer />
-      </CustomContext.Provider>
+       <Header/>
+       <Content/>
+       <Footer/>
+      </firstContext.Provider>
     </div>
   );
 }
 
 function Header() {
-  const context = useContext(CustomContext);
+  const context = useContext(firstContext);
   return (
     // Code for Header
     // <Header />
@@ -44,7 +47,7 @@ function Content() {
 }
 
 function Temperature() {
-  const context = useContext(CustomContext);
+  const context = useContext(firstContext);
   return (
     // Code for Temperature
     // <Temperature />
@@ -55,11 +58,13 @@ function Temperature() {
 }
 
 function Footer() {
-  const context = useContext(CustomContext);
+  const context = useContext(firstContext);
+console.log(firstContext)
   return (
     // Code for Footer
     // <Footer />
     <footer>
+      {firstContext.temperature}
       <button onClick={() => context.setTemperature((prev) => prev + 1)}>
         Up
       </button>

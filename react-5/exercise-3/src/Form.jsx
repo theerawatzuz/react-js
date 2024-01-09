@@ -40,7 +40,7 @@ const Form = ({ submitHandler }) => {
         onChange={(ev) => setStatus(ev.target.value)}
       />
       <button onClick={() => submitHandler(id, name, age, weight, status)}>
-        Submit
+        Delete
       </button>
     </div>
   );

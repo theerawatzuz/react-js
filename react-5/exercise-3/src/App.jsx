@@ -19,7 +19,18 @@ const App = () => {
     getData();
   }, [reload]);
 
-  const removeData = () => {};
+  const removeData = async (id) => {
+    console.log(id);
+    const baseURL = "https://jsd5-mock-backend.onrender.com"
+    const deleteRoute = "member/"
+    const member_id = id
+    axios.delete(`${baseURL}/${deleteRoute}/${member_id}`);
+    
+    if (response.status === 200){
+      alert(response.data.message)
+      setReload(!reload)
+    }
+  };
 
   return (
     <div className="container">

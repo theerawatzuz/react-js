@@ -7,24 +7,18 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import Page2 from './Page_2';
-import Navbar from './Nav';
+import Rich from './Rich';
+import Home from './Home';
 
 const router = createBrowserRouter([
   {
     path: '/',
-    element: <>
-      <Navbar />
-      <App />
-    </>
+    element: <Home />
   },
   {
-    path: '/page-2',
-    element: <>
-      <Navbar />
-      <Page2 />
-    </>
-  }
+    path: '/rich',
+    element: <Rich />
+  },
 ])
 
 ReactDOM.createRoot(document.getElementById('root')).render(

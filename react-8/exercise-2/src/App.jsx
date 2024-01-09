@@ -53,7 +53,7 @@ class App extends React.Component {
       <div id="app">
         <h1>Enter Data</h1>
         <RunningForm />
-        <TableDisplay memberData={members} />
+        <TableDisplay memberData={this.members} />
       </div>
     );
   }
@@ -61,7 +61,46 @@ class App extends React.Component {
 
 class RunningForm extends React.Component {
   // code here
+  
 }
+
+class TableDisplay extends React.Component{
+  constructor(props) {
+    super(props);
+  }
+    render(){
+      const memberData = props.memberData;
+      return (
+        <>
+          <h1>Entered Data</h1>
+          <table id="data-table" border="1" width="100%">
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Weight</th>
+                <th>Current Running (Minutes)</th>
+                <th>Good Running</th>
+              </tr>
+            </thead>
+            <tbody>
+              {memberData.map((item) => {
+                return (
+                  <tr>
+                    <td>{item.name}</td>
+                    <td>{item.age}</td>
+                    <td>{item.weight}</td>
+                    <td>{item.running}</td>
+                    <td>{item.status}</td>
+                  </tr>
+                );
+              })}
+            </tbody>
+          </table>
+        </>
+      );
+    }
+  }
 
 // class of TableDisplay here
 
